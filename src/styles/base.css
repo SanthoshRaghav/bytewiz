@@ -186,10 +186,16 @@ section{padding:58px 0}
 .foot-col a,.foot-col span{display:block;font-size:15px;color:#B6C3D7;padding:6px 0}
 .foot-col a:hover{color:#fff}
 .foot-bar{display:flex;flex-direction:column;gap:14px;margin-top:40px;padding-top:24px;border-top:1px solid #1C2B40;font-size:13.5px;color:#8291A8}
-.foot-social{display:flex;gap:10px}
-.foot-social a{width:38px;height:38px;border-radius:10px;border:1px solid #1C2B40;display:grid;place-items:center;color:#AEBBCF}
-.foot-social a:hover{color:#fff;border-color:#33465F}
+.foot-social{display:flex;gap:10px;margin-top:22px}
+/* All three footer social icons share one rounded-square container so the
+   live Email link and the non-interactive Instagram/X placeholders match. */
+.foot-social a,.foot-social .soc-ph{width:38px;height:38px;border-radius:10px;border:1px solid #1C2B40;display:grid;place-items:center;color:#AEBBCF;transition:color .18s ease,border-color .18s ease,background .18s ease}
 .foot-social svg{width:18px;height:18px}
+/* Interactive (Email): subtle, accessible hover; focus ring via :focus-visible. */
+.foot-social a:hover{color:#fff;border-color:#33465F;background:#ffffff0a}
+/* Placeholders (Instagram/X): visible but clearly non-interactive — not a link,
+   not focusable, no hover affordance, until real profile URLs are confirmed. */
+.foot-social .soc-ph{cursor:default}
 
 /* ---------- Motion ---------- */
 @media (prefers-reduced-motion:no-preference){

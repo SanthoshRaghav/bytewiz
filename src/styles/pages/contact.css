@@ -1,0 +1,93 @@
+/* ============================================================
+   Bytewiz — Contact Us (page-specific styles)
+   ============================================================ */
+/* ======================= CONTACT PAGE ======================= */
+.navlink.active{color:var(--brand-strong);background:var(--brand-tint)}
+.mnav-panel a.active{color:var(--brand-strong);background:var(--brand-tint)}
+
+/* Compact hero */
+.c-hero{background:var(--ground);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.c-hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(29,78,216,.07) 1px,transparent 1.4px);background-size:26px 26px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 80%);mask-image:linear-gradient(180deg,#000,transparent 80%);pointer-events:none}
+.c-hero-inner{position:relative;padding:46px 0 40px;max-width:660px}
+.c-hero h1{font-size:clamp(30px,6.4vw,46px);font-weight:800;letter-spacing:-.025em;line-height:1.08}
+.c-hero p{font-size:clamp(16px,4vw,19px);color:var(--body);margin-top:16px;line-height:1.55;max-width:580px}
+.c-hero .eyebrow{margin-bottom:16px}
+
+/* Primary contact area */
+.contact-grid{display:grid;gap:22px}
+.form-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-l);padding:26px 24px;box-shadow:var(--sh-2)}
+.form-card .fintro{font-size:14.5px;color:var(--muted);margin-bottom:22px;line-height:1.55}
+.row2{display:grid;gap:0}
+.field{margin-bottom:18px}
+.field label{display:block;font:600 13.5px/1 var(--sans);color:var(--ink);margin-bottom:8px}
+.field .req{color:#B23B34;margin-left:3px}
+.field .opt{color:var(--muted-2);font-weight:500;margin-left:7px;font-size:12px}
+.inp{width:100%;font:400 15px/1.45 var(--sans);color:var(--ink);background:#fff;border:1px solid var(--border-2);border-radius:var(--r-s);padding:13px 14px;min-height:50px;transition:border-color .15s ease,box-shadow .15s ease}
+.inp::placeholder{color:#9AA7BD}
+.inp:focus,.inp.is-focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(29,78,216,.15)}
+textarea.inp{min-height:130px;resize:vertical}
+.select-wrap{position:relative}
+.select-wrap select.inp{appearance:none;-webkit-appearance:none;padding-right:42px;cursor:pointer}
+.select-wrap .chev{position:absolute;right:14px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--muted);width:18px;height:18px}
+.help{font-size:12.5px;color:var(--muted);margin-top:7px;line-height:1.45}
+.ferr{display:none;align-items:center;gap:6px;font-size:12.5px;color:#B23B34;margin-top:8px;font-weight:500}
+.ferr svg{width:14px;height:14px;flex:none}
+.field.is-error .inp{border-color:#B23B34;box-shadow:0 0 0 3px rgba(178,59,52,.12)}
+.field.is-error .ferr{display:flex}
+.legend{font-size:12.5px;color:var(--muted);margin:2px 0 16px}
+.legend .req{color:#B23B34}
+.privacy{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--muted);background:var(--ground);border:1px solid var(--border);border-radius:var(--r-m);padding:13px 14px;margin:0 0 18px;line-height:1.5}
+.privacy svg{width:17px;height:17px;color:var(--muted-2);flex:none;margin-top:1px}
+.btn-submit{width:100%}
+.spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.45);border-top-color:#fff;border-radius:50%}
+
+/* Direct contact info */
+.cinfo{background:var(--ground);border:1px solid var(--border);border-radius:var(--r-l);padding:26px 24px}
+.cinfo h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.cinfo .ci-intro{font-size:14px;color:var(--muted);margin-bottom:18px;line-height:1.5}
+.cinfo .row{display:flex;gap:14px;align-items:flex-start;padding:15px 0;border-top:1px solid var(--border)}
+.cinfo .row:first-of-type{border-top:0;padding-top:4px}
+.cinfo .ri{width:42px;height:42px;border-radius:11px;background:#fff;border:1px solid var(--border);color:var(--brand);display:grid;place-items:center;flex:none}
+.cinfo .ri svg{width:20px;height:20px}
+.cinfo .rk{font:600 11px/1 var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--muted-2);margin-bottom:5px}
+.cinfo .rv{font-size:14.5px;color:var(--ink);font-weight:500}
+.cinfo .ph-note{font-size:12px;color:var(--muted-2);margin-top:16px;padding-top:14px;border-top:1px dashed var(--border-2);line-height:1.5}
+
+/* Form states reference */
+.states{margin-top:24px;background:var(--ground);border:1px solid var(--border);border-radius:var(--r-l);padding:24px 22px}
+.states .sh{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.states .sh h3{font-size:16px;font-weight:700}
+.states .sh .pill{font:700 10px/1 var(--sans);letter-spacing:.07em;text-transform:uppercase;color:var(--muted-2);background:#fff;border:1px solid var(--border);border-radius:999px;padding:6px 9px}
+.states .sdesc{font-size:13px;color:var(--muted);margin-bottom:18px;line-height:1.5}
+.states-grid{display:grid;gap:14px}
+.state{background:#fff;border:1px solid var(--border);border-radius:var(--r-m);padding:16px}
+.state .sl{font:700 11px/1 var(--sans);letter-spacing:.07em;text-transform:uppercase;color:var(--muted-2);margin-bottom:11px}
+.state .mini-label{font:600 12px/1 var(--sans);color:var(--ink);margin-bottom:7px;display:block}
+.state .inp{min-height:44px;padding:10px 12px;font-size:14px}
+.note-ok,.note-err{display:flex;gap:12px;align-items:flex-start;border-radius:var(--r-m);padding:15px}
+.note-ok{background:#F1FBF8;border:1px solid #D5EFE9}
+.note-err{background:#FDF3F2;border:1px solid #F3D6D3}
+.note-ok .ic,.note-err .ic{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;flex:none}
+.note-ok .ic{background:#D5EFE9;color:var(--accent-ink)}
+.note-err .ic{background:#F6D9D6;color:#B23B34}
+.note-ok .ic svg,.note-err .ic svg{width:18px;height:18px}
+.note-ok b,.note-err b{display:block;font:700 13.5px/1.3 var(--disp);color:var(--ink);margin-bottom:3px}
+.note-ok p,.note-err p{font-size:12.5px;color:var(--body);line-height:1.45}
+.note-err .retry{margin-top:9px;font:600 12.5px/1 var(--sans);color:#B23B34;background:#fff;border:1px solid #F3D6D3;border-radius:8px;padding:8px 11px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.note-err .retry svg{width:13px;height:13px}
+.btn.is-loading{background:var(--brand-strong);cursor:progress}
+
+/* Contact responsive */
+@media (min-width:680px){
+  .row2{grid-template-columns:1fr 1fr;gap:0 18px}
+  .states-grid{grid-template-columns:1fr 1fr}
+}
+@media (min-width:1024px){
+  .c-hero-inner{padding:58px 0 48px}
+  .contact-grid{grid-template-columns:1.6fr 1fr;align-items:start}
+  .form-card{padding:32px 30px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .spinner{animation:spin .7s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+}

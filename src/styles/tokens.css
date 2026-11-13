@@ -1,0 +1,47 @@
+/* ============================================================
+   Bytewiz — Design tokens
+   Single source of truth for color, type, shadow, radius, layout.
+   ============================================================ */
+:root {
+  /* Ink / text */
+  --ink: #0B1B2E;
+  --ink-2: #13284012;
+  --body: #33425A;
+  --muted: #54627C;
+  --muted-2: #6B7890;
+
+  /* Brand */
+  --brand: #1D4ED8;
+  --brand-strong: #1739AE;
+  --brand-tint: #EEF3FF;
+  --brand-tint-2: #DCE6FF;
+
+  /* Accent */
+  --accent: #0FB5A4;
+  --accent-ink: #0A7E72;
+
+  /* Surfaces & lines */
+  --surface: #FFFFFF;
+  --ground: #F6F8FB;
+  --ground-2: #EEF2F8;
+  --border: #E4E9F2;
+  --border-2: #D5DDEA;
+
+  /* Elevation */
+  --sh-1: 0 1px 2px rgba(11, 27, 46, .05);
+  --sh-2: 0 10px 30px -14px rgba(11, 27, 46, .16);
+  --sh-3: 0 20px 50px -24px rgba(11, 27, 46, .22);
+
+  /* Radii */
+  --r-s: 10px;
+  --r-m: 14px;
+  --r-l: 20px;
+  --r-xl: 28px;
+
+  /* Layout */
+  --wrap: 1180px;
+
+  /* Type families */
+  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --disp: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}

@@ -1,0 +1,45 @@
+/* ============================================================
+   Bytewiz — Homepage (page-specific styles)
+   ============================================================ */
+/* Hero orchestration figure (replaces the LIVE four-card flow) */
+.horc{position:relative;background:#fff;border:1px solid var(--border);border-radius:var(--r-xl);box-shadow:var(--sh-2);padding:22px}
+.horc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding:0 2px}
+.horc-head .hl{font:700 11px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2)}
+.horc-steps{display:flex;align-items:center;gap:6px}
+.horc-steps i{width:7px;height:7px;border-radius:999px;background:var(--border-2);transition:all .3s ease}
+.horc-steps i.on{width:20px;background:var(--brand)}
+.horc-flow{display:flex;flex-direction:column}
+.horc-node{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--border);border-radius:var(--r-m);padding:15px 16px;position:relative;z-index:2;box-shadow:var(--sh-1)}
+.horc-node .hi{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;flex:none;background:var(--ground-2);color:var(--ink)}
+.horc-node .hi svg{width:24px;height:24px}
+.horc-node h4{font:700 15.5px/1.15 var(--disp);color:var(--ink)}
+.horc-node p{font-size:12.5px;color:var(--muted);margin-top:3px}
+.horc-node.focal{background:#F3F5FE;border-color:#C6D0F6;box-shadow:0 16px 34px -20px rgba(29,78,216,.55);z-index:3}
+.horc-node.focal .hi{width:54px;height:54px;background:var(--brand);color:#fff}
+.horc-node.focal .hi svg{width:27px;height:27px}
+.horc-node.focal h4{color:var(--brand-strong)}
+.horc-node.out .hi{background:var(--ink);color:#fff}
+.horc-link{display:flex;justify-content:center;align-items:center;height:28px;position:relative;z-index:1}
+.horc-rail{position:relative;width:2px;height:100%;background:linear-gradient(180deg,#C7D2F7,#BFE9E2);border-radius:2px}
+.horc-pulse{position:absolute;left:50%;top:0;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(15,181,164,.14)}
+@media (min-width:1024px){
+  .horc{padding:26px}
+  .horc-flow{flex-direction:row;align-items:center}
+  .horc-node{flex:1 1 0;flex-direction:column;align-items:flex-start;text-align:left;padding:18px 16px}
+  .horc-node .hi{margin-bottom:12px}
+  .horc-node.focal{flex:1.32 1 0}
+  .horc-link{height:auto;align-self:stretch;flex:0 0 30px}
+  .horc-rail{width:100%;height:2px;background:linear-gradient(90deg,#C7D2F7,#BFE9E2)}
+  .horc-pulse{left:0;top:50%;margin:-4px 0 0 0}
+}
+@media (prefers-reduced-motion:no-preference){
+  @keyframes horcY{0%{top:-4px;opacity:0}12%{opacity:1}88%{opacity:1}100%{top:100%;opacity:0}}
+  .horc-pulse{animation:horcY 2.2s ease-in-out infinite}
+  .horc-link:nth-of-type(4) .horc-pulse{animation-delay:.73s}
+  .horc-link:nth-of-type(6) .horc-pulse{animation-delay:1.46s}
+}
+@media (prefers-reduced-motion:no-preference) and (min-width:1024px){
+  @keyframes horcX{0%{left:-4px;opacity:0}12%{opacity:1}88%{opacity:1}100%{left:100%;opacity:0}}
+  .horc-link .horc-pulse{animation-name:horcX}
+}
+@media (prefers-reduced-motion:reduce){ .horc-pulse{display:none} }

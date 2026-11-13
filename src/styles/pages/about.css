@@ -103,5 +103,5 @@
 }
 
 
-.foot-mark{display:inline-grid;margin-right:9px;flex:none}
-.foot-mark svg{width:28px;height:28px;display:block}
+.foot-mark{display:inline-grid;align-items:center;margin-right:10px;flex:none}
+.foot-mark .brand-logo{width:auto;height:34px;margin:0;max-width:none;display:block}

@@ -193,7 +193,10 @@ function head(page) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${page.title}</title>
   <meta name="description" content="${page.description}">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico?v=20261113" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon-32.png?v=20261113" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16.png?v=20261113" sizes="16x16">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261113">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
@@ -218,6 +221,9 @@ for (const page of PAGES) {
   let body = between(raw, '</helmet>', '</x-dc>').trim();
   for (const [from, to] of LINKS) body = body.split(from).join(to);
   body = body.split(FOOT_MARK_FROM).join(FOOT_MARK_TO);
+  // Brand wordmark is "Bytewiz" with no trailing dot. Source artboards still
+  // carry the old <span class="wm-dot">, so strip it on every generate.
+  body = body.replace(/<span class="wm-dot"[^>]*>\.<\/span>/g, '');
   if (page.html === 'contact.html') {
     body = rewriteContactDirect(body);
     pageCss = rewriteContactCss(pageCss);

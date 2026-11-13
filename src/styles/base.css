@@ -40,9 +40,8 @@ p{margin:0}
 .site-head{position:sticky;top:0;z-index:50;background:#ffffffee;backdrop-filter:saturate(1.3) blur(8px);border-bottom:1px solid var(--border)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:66px}
 .brand{display:inline-flex;align-items:center;gap:1px;font-family:var(--disp);font-weight:800;font-size:23px;color:var(--ink);letter-spacing:-.025em}
-.brand .mark{width:34px;height:34px;flex:none}
-.wm-dot{color:var(--brand)}
-.foot-brand .wm-dot{color:var(--accent)}
+.brand-logo{display:block;height:34px;width:auto;max-width:none;flex:none;object-fit:contain}
+.nav .brand-logo{margin-right:10px}
 .nav-desktop{display:none;align-items:center;gap:6px}
 .nav-desktop a.navlink{padding:9px 13px;border-radius:9px;color:var(--ink);font-weight:500;font-size:15.5px}
 .nav-desktop a.navlink:hover{background:var(--ground-2);color:var(--brand-strong)}
@@ -234,6 +233,7 @@ section{padding:58px 0}
 /* ---------- Desktop ---------- */
 @media (min-width:1024px){
   .nav{height:74px}
+  .nav .brand-logo{height:40px}
   .nav-desktop{display:flex}
   .nav-cta{display:inline-flex}
   .mnav{display:none}

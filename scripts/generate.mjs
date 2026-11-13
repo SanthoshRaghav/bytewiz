@@ -19,7 +19,7 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const SRC = resolve(
-  '/tmp/claude-0/-home-user-bytewiz/d7dfe111-9713-5c3b-8d27-3863b0fe8d2a/scratchpad/artifact-files/f4572135-3f3c-41f9-84ae-43bf35eed68f/project'
+  '/tmp/claude-0/-home-user-bytewiz/8c3b443a-5216-5187-8f87-6f9680cbbee6/scratchpad/design/project'
 );
 
 /** Pages: source artboard -> output route + CSS module + metadata. */
@@ -61,15 +61,6 @@ const PAGES = [
       'Custom software, integrations, and APIs — modernizing outdated systems and delivering reliable engineering around your requirements.',
   },
   {
-    src: 'Bpo.dc.html',
-    html: 'bpo-services.html',
-    css: 'bpo.css',
-    cssComment: 'BPO Services',
-    title: 'BPO Services — Bytewiz',
-    description:
-      'Operations and process support — customer support, back office, and data processing with people and automation that scale with demand.',
-  },
-  {
     src: 'Contact.dc.html',
     html: 'contact.html',
     css: 'contact.css',
@@ -86,9 +77,16 @@ const LINKS = [
   ['About.dc.html', 'about.html'],
   ['Ai.dc.html', 'ai-solutions.html'],
   ['It.dc.html', 'it-services.html'],
-  ['Bpo.dc.html', 'bpo-services.html'],
   ['Contact.dc.html', 'contact.html'],
 ];
+
+/** Footer brand symbol: normalize to the EXACT favicon artwork (public/favicon.svg)
+   so the temporary footer "B" mark matches the favicon pixel-for-pixel — same
+   corner radius, glyph size/baseline, and accent dot — rather than a near copy. */
+const FOOT_MARK_FROM =
+  '<svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#1D4ED8"/><text x="16" y="23" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="21" fill="#ffffff">B</text><circle cx="25" cy="23" r="2.6" fill="#0FB5A4"/></svg>';
+const FOOT_MARK_TO =
+  '<svg viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#1D4ED8"/><text x="50%" y="51%" dominant-baseline="central" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="800" fill="#fff">B</text><circle cx="25.5" cy="22.5" r="2.4" fill="#0FB5A4"/></svg>';
 
 /** Generic UI icons that map 1:1 to Lucide. Bespoke icons are left alone. */
 const LUCIDE = [
@@ -161,6 +159,7 @@ for (const page of PAGES) {
 
   let body = between(raw, '</helmet>', '</x-dc>').trim();
   for (const [from, to] of LINKS) body = body.split(from).join(to);
+  body = body.split(FOOT_MARK_FROM).join(FOOT_MARK_TO);
   body = swapIcons(body);
 
   // Indent body two spaces for readability inside <body>.

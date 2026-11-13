@@ -51,7 +51,8 @@ textarea.inp{min-height:130px;resize:vertical}
 .cinfo .ri svg{width:20px;height:20px}
 .cinfo .rk{font:600 11px/1 var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--muted-2);margin-bottom:5px}
 .cinfo .rv{font-size:14.5px;color:var(--ink);font-weight:500}
-.cinfo .ph-note{font-size:12px;color:var(--muted-2);margin-top:16px;padding-top:14px;border-top:1px dashed var(--border-2);line-height:1.5}
+.cinfo .rv a{color:inherit;text-decoration:none}
+.cinfo .rv a:hover{color:var(--brand);text-decoration:underline}
 
 /* Form feedback states (kept to support the real inquiry form) */
 .note-ok,.note-err{display:flex;gap:12px;align-items:flex-start;border-radius:var(--r-m);padding:15px}

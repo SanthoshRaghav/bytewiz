@@ -118,6 +118,64 @@ function swapIcons(body) {
   return body;
 }
 
+/** Assert-and-replace: throws if the needle is absent, so a design re-sync
+   fails loudly instead of silently restoring removed placeholders. */
+function mustReplace(s, from, to) {
+  if (!s.includes(from)) {
+    throw new Error(`contact-direct rewrite: expected markup not found:\n${from.slice(0, 80)}…`);
+  }
+  return s.split(from).join(to);
+}
+
+/** Contact page "Prefer to reach us directly?" card: the approved mockup keeps
+   labelled email/phone/office/hours placeholders, but the live site shows only
+   the real, clickable email. Strip the phone, office and hours rows, swap the
+   intro copy, and make the email a working mailto. (CSS cleanup in the loop.) */
+function rewriteContactDirect(body) {
+  body = mustReplace(
+    body,
+    "<p class=\"ci-intro\">Approved contact details will appear here. They're shown as placeholders until confirmed.</p>",
+    '<p class="ci-intro">Have a question or prefer email? Reach out to us directly.</p>'
+  );
+  body = mustReplace(
+    body,
+    '<div class="rv">[Approved business email]</div>',
+    '<div class="rv"><a href="mailto:info@bytewiz.ai">info@bytewiz.ai</a></div>'
+  );
+  body = mustReplace(
+    body,
+    '\n        <div class="row">\n          <span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3l1 5-2 1a12 12 0 006 6l1-2 5 1v3a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></span>\n          <div><div class="rk">Phone</div><div class="rv">[Approved phone number]</div></div>\n        </div>',
+    ''
+  );
+  body = mustReplace(
+    body,
+    '\n        <div class="row">\n          <span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.6-7-11a7 7 0 0114 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>\n          <div><div class="rk">Office</div><div class="rv">[Office address — if applicable]</div></div>\n        </div>',
+    ''
+  );
+  body = mustReplace(
+    body,
+    "\n        <p class=\"ph-note\">Business hours and location will be added here once verified. We haven't published these details yet, so none are shown.</p>",
+    ''
+  );
+  return body;
+}
+
+/** Contact page CSS: drop the placeholder-note rule and give the email link a
+   subtle, on-brand hover affordance while keeping the card's existing look. */
+function rewriteContactCss(css) {
+  css = mustReplace(
+    css,
+    '.cinfo .rv{font-size:14.5px;color:var(--ink);font-weight:500}',
+    '.cinfo .rv{font-size:14.5px;color:var(--ink);font-weight:500}\n.cinfo .rv a{color:inherit;text-decoration:none}\n.cinfo .rv a:hover{color:var(--brand);text-decoration:underline}'
+  );
+  css = mustReplace(
+    css,
+    '\n.cinfo .ph-note{font-size:12px;color:var(--muted-2);margin-top:16px;padding-top:14px;border-top:1px dashed var(--border-2);line-height:1.5}',
+    ''
+  );
+  return css;
+}
+
 function extractPageCss(style) {
   // Everything after the shared base block (which ends at the ai-focus rule).
   const marker = '.flow-node.ai-focus{flex:1.34 1 0}';
@@ -155,11 +213,15 @@ for (const page of PAGES) {
   const raw = readFileSync(resolve(SRC, page.src), 'utf8');
 
   const style = between(raw, '<style>', '</style>');
-  const pageCss = extractPageCss(style);
+  let pageCss = extractPageCss(style);
 
   let body = between(raw, '</helmet>', '</x-dc>').trim();
   for (const [from, to] of LINKS) body = body.split(from).join(to);
   body = body.split(FOOT_MARK_FROM).join(FOOT_MARK_TO);
+  if (page.html === 'contact.html') {
+    body = rewriteContactDirect(body);
+    pageCss = rewriteContactCss(pageCss);
+  }
   body = swapIcons(body);
 
   // Indent body two spaces for readability inside <body>.

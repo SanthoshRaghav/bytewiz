@@ -15,7 +15,6 @@ export default defineConfig({
         about: resolve(__dirname, 'about.html'),
         ai: resolve(__dirname, 'ai-solutions.html'),
         it: resolve(__dirname, 'it-services.html'),
-        bpo: resolve(__dirname, 'bpo-services.html'),
         contact: resolve(__dirname, 'contact.html'),
       },
     },

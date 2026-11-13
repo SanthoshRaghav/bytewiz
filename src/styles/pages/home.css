@@ -43,3 +43,7 @@
   .horc-link .horc-pulse{animation-name:horcX}
 }
 @media (prefers-reduced-motion:reduce){ .horc-pulse{display:none} }
+
+
+.foot-mark{display:inline-grid;margin-right:9px;flex:none}
+.foot-mark svg{width:28px;height:28px;display:block}

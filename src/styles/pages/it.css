@@ -175,3 +175,7 @@
 .ttags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .ttags span{font:600 11.5px/1 var(--sans);color:var(--body);background:#fff;border:1px solid var(--border);border-radius:999px;padding:7px 11px}
 @media (min-width:1024px){ .eqx{grid-template-columns:1fr 1fr;gap:40px;align-items:start} }
+
+
+.foot-mark{display:inline-grid;margin-right:9px;flex:none}
+.foot-mark svg{width:28px;height:28px;display:block}

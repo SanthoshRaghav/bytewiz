@@ -1,8 +1,11 @@
 # Bytewiz — Enterprise Technology Services site
 
-Marketing site for Bytewiz (Home · About · AI Solutions · IT Services · BPO · Contact),
+Marketing site for Bytewiz (Home · About · AI Solutions · IT Services · Contact),
 built to the approved design with **Vite + semantic HTML5 + modern CSS + vanilla JavaScript**.
 No UI frameworks (no React/Vue/Tailwind).
+
+Bytewiz's active public positioning is **AI Solutions & Intelligent Automation** and
+**IT Services & Software Development** only.
 
 ## Stack & approach
 
@@ -28,7 +31,7 @@ npm run preview  # preview the production build
 
 ```
 index.html            about.html         ai-solutions.html
-it-services.html      bpo-services.html  contact.html
+it-services.html      contact.html
 public/favicon.svg
 src/
   styles/
@@ -50,12 +53,16 @@ scripts/
 | `about.html`         | About Us        |
 | `ai-solutions.html`  | AI Solutions    |
 | `it-services.html`   | IT Services     |
-| `bpo-services.html`  | BPO Services    |
 | `contact.html`       | Contact Us      |
 
 ## Notes
 
 - The contact form is a faithful mockup: it validates required fields and shows the approved
-  error/success states, but does not transmit anything (matching the approved copy).
-- Content placeholders (e.g. `[Approved business email]`, leadership names) are intentional and
-  carried over from the approved design, to be filled in once confirmed.
+  focus / loading / error / success states, but is **not wired to a submission endpoint** — no
+  backend or email service is configured, so nothing is transmitted. This matches the approved
+  copy; a real integration is a follow-up item.
+- The footer uses the current temporary blue-square "B" brand mark (the favicon artwork). The
+  Instagram and X icons are non-interactive placeholders pending real, approved profile URLs;
+  the email icon is a working `mailto:info@bytewiz.ai` link.
+- `Privacy · Terms` in the footer is plain (non-linked) text — those pages do not exist yet and
+  are intentionally not presented as working destinations.

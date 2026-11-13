@@ -101,3 +101,7 @@
   .ab-hero-inner{padding:66px 0 60px}
   .ab-hero h1{font-size:clamp(44px,4.6vw,60px)}
 }
+
+
+.foot-mark{display:inline-grid;margin-right:9px;flex:none}
+.foot-mark svg{width:28px;height:28px;display:block}

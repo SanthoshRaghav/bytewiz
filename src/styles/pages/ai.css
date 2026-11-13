@@ -184,3 +184,7 @@
 }
 @media (prefers-reduced-motion:no-preference) and (min-width:1024px){ .aic-link b{animation-name:dotX} }
 @media (prefers-reduced-motion:reduce){ .aic-link b{display:none} }
+
+
+.foot-mark{display:inline-grid;margin-right:9px;flex:none}
+.foot-mark svg{width:28px;height:28px;display:block}
